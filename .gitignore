@@ -1,0 +1,9 @@
+results/**
+Logs/**
+Config/**
+Temp/**
+*.csproject
+*.csproj
+*.sln
+.vsconfig
+Library/**
