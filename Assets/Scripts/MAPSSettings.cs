@@ -29,4 +29,8 @@ public class MAPSSettings : MonoBehaviour
     public bool useRandomizedWeightPositions;
 
     public bool usePlatformDistanceDiscount;
+
+    public bool useRandomizedAgentPositions;
+
+    public int maxEnvironmentSteps;
 }

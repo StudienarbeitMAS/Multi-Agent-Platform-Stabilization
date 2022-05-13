@@ -123,14 +123,14 @@ public class MAPSAreaController : MonoBehaviour
     public void FixedUpdate()
     {
         m_ResetTimer += 1;
-        if (m_ResetTimer >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
+        if (m_ResetTimer >= m_Settings.maxEnvironmentSteps && m_Settings.maxEnvironmentSteps > 0)
         {
             m_AgentGroup.GroupEpisodeInterrupted();
             ResetScene();
         }
 
         m_AgentGroup.AddGroupReward(
-            (0.5f / MaxEnvironmentSteps) * 
+            (0.5f / m_Settings.maxEnvironmentSteps) * 
             (m_Settings.usePlatformDistanceDiscount ? GetHeightPctToDetectionPlane() : 1));
     }
 
@@ -157,7 +157,7 @@ public class MAPSAreaController : MonoBehaviour
 
         foreach (PlayerInfo agent in PlayerInfos)
         {
-            agent.Agent.transform.position = agent.StartingPos;
+            agent.Agent.transform.position = (m_Settings.useRandomizedAgentPositions ? GetRandomSpawnPos() : agent.StartingPos);
             agent.Agent.transform.rotation = agent.StartingRotation;
             agent.Body.angularVelocity = Vector3.zero;
             agent.Body.velocity = Vector3.zero;
@@ -197,9 +197,9 @@ public class MAPSAreaController : MonoBehaviour
         weight.AddComponent<BoxCollider>();
 
         Rigidbody rb = weight.AddComponent<Rigidbody>();
-        rb.mass = 10;
-        rb.drag = 0;
-        rb.angularDrag = 0;
+        rb.mass = 10.0f;
+        rb.drag = 4.0f;
+        rb.angularDrag = 0.05f;
         weight.transform.parent = transform;
         weight.transform.position = GetRandomSpawnPos();
 

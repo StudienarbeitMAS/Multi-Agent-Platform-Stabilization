@@ -710,6 +710,10 @@ MonoBehaviour:
   agentRunSpeed: 2
   agentRotationSpeed: 15
   spawnAreaMarginMultiplier: 0.5
+  useRandomizedWeightPositions: 1
+  usePlatformDistanceDiscount: 1
+  useRandomizedAgentPositions: 0
+  maxEnvironmentSteps: 5000
 --- !u!4 &275981233
 Transform:
   m_ObjectHideFlags: 0
@@ -799,6 +803,8 @@ MonoBehaviour:
     StartingRotation: {x: 0, y: 0, z: 0, w: 0}
     Body: {fileID: 0}
   DetectionPlane: {fileID: 0}
+  WeightMesh: {fileID: 0}
+  WeightMaterial: {fileID: 0}
   PlatformBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -1213,6 +1219,8 @@ MonoBehaviour:
     StartingRotation: {x: 0, y: 0, z: 0, w: 0}
     Body: {fileID: 0}
   DetectionPlane: {fileID: 2052242464}
+  WeightMesh: {fileID: 0}
+  WeightMaterial: {fileID: 0}
   PlatformBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}

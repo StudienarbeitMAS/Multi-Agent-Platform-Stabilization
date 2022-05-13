@@ -28,13 +28,13 @@ public class MAPSAgent : Agent
     public override void CollectObservations(VectorSensor sensor)
     {
         // Angle (2 floats)
-        Quaternion rot = m_Controller.transform.rotation;
-        Vector3 normalizedRot = rot.eulerAngles / 180.0f - Vector3.one;
-        sensor.AddObservation(normalizedRot.x);
-        sensor.AddObservation(normalizedRot.z);
+        //Quaternion rot = m_Controller.transform.rotation;
+        //Vector3 normalizedRot = rot.eulerAngles / 180.0f - Vector3.one;
+        //sensor.AddObservation(normalizedRot.x);
+        //sensor.AddObservation(normalizedRot.z);
         //Debug.Log(rot.x + " " + rot.y + " " + rot.z + " " + rot.w);
-        //sensor.AddObservation(m_Controller.transform.rotation.z);
-        //sensor.AddObservation(m_Controller.transform.rotation.x);
+        sensor.AddObservation(m_Controller.transform.rotation.z);
+        sensor.AddObservation(m_Controller.transform.rotation.x);
 
         // Velocity (3 floats)
         sensor.AddObservation(m_Controller.BodyPlatform.velocity);
